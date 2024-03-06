@@ -1,0 +1,138 @@
+1)
+using System;
+
+public class Pr2
+{
+    static void Main()
+    {
+        int[] nums = { 5, 15, 25 };
+        Console.WriteLine("Numbers from interval 1-16: \n");
+        foreach (int num in nums)
+        {
+            if (num <= 16)
+            {
+                Console.WriteLine(num);
+            }
+        }
+    }
+}
+
+//////////////////////////////
+
+2)
+using System;
+
+public class Pr2
+{
+    static void Main()
+    {
+        Console.WriteLine("Trianle ABC \n");
+
+        Console.WriteLine("Enter AB length:");
+        double ab = Convert.ToDouble(Console.ReadLine());
+
+        Console.WriteLine("Enter BC length:");
+        double bc = Convert.ToDouble(Console.ReadLine());
+
+        Console.WriteLine("Enter AC length:");
+        double ac = Convert.ToDouble(Console.ReadLine());
+
+        double per = ab + bc + ac;
+        double s = per / 2;
+        double S = Math.Sqrt(s * (s - ab) * (s - bc) * (s - ac));
+        Console.WriteLine($"Perimetr is: {per}");
+        Console.WriteLine($"Square is: {S}");
+
+        if (ab == bc && bc == ac && ab == ac)
+        {
+            Console.WriteLine("Triangle is equilateral");
+        }
+        else if (ab == bc && bc != ac && ab != ac || ab != bc && bc == ac && ab != ac || ab != bc && bc != ac && ab == ac)
+        {
+            Console.WriteLine("Triangle is isosceles");
+        }
+          else
+        {
+            Console.WriteLine("Triangle is scalene");
+        }
+    }
+}
+
+//////////////////////////////////
+
+3)
+using System;
+
+public class Pr2
+{
+    static void Main()
+    {
+        int[] x = new int[16];
+        Random ran = new Random(); for (int i = 0; i < x.Length; i++)
+        {
+            x[i] = ran.Next(100);
+        }
+        int min = x[0]; int max = x[0];
+
+        for (int i = 1; i < x.Length; i++)
+        {
+            if (x[i] < min)
+            {
+                min = x[i];
+            }
+            if (x[i] > max)
+            {
+                max = x[i];
+            }
+        }
+        Console.WriteLine("Array x: \n");
+        foreach (int num in x)
+        {
+            Console.WriteLine(num + " ");
+        }
+        Console.WriteLine(); Console.WriteLine($"Min num in array: {min} \n");
+        Console.WriteLine($"Max num in array: {max}");
+
+    }
+}
+
+///////////////////////////////////////
+
+4)
+using System;
+
+public class Pr2
+{
+    static void Main()
+    {
+        int[] x = { -15, -9, -7, -4, -2, -1, 0, 3, 5, 6, 8, 9, 12, 15, 16, 20 };
+        Console.WriteLine("Enter num M:");
+
+        int m = Convert.ToInt32(Console.ReadLine()); int[] y = new int[x.Length];
+        int count = 0;
+        for (int i = 0; i < x.Length; i++)
+        {
+            if (Math.Abs(x[i]) > m)
+            {
+                y[count] = x[i]; count++;
+            }
+        }
+
+        Console.WriteLine($"Number N: {m} \n"); Console.WriteLine("Array x:");
+        PrintArr(x); Console.WriteLine("Array y:");
+        PrintArr(y, count);
+    }
+
+    static void PrintArr(int[] arr, int length = -1)
+    {
+        if (length == -1)
+        {
+            length = arr.Length;
+        }
+        for (int i = 0; i < length; i++)
+        {
+            Console.WriteLine(arr[i] + " ");
+        }
+        Console.WriteLine();
+    }
+}
